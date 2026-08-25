@@ -28,6 +28,13 @@ the rev2 may not fit. If it overflows: disable unused features in the keymap's r
 add `LTO_ENABLE = yes`, which typically saves a few KB. The RP2040-based Iris CE has no such
 constraint.
 
+**GitHub Actions note (2026-08-25):** the `CLI CI` and `Regenerate Files` workflows are
+disabled on the fork — they ran in QMK's `qmkfm/qmk_cli:latest` container, which is ~2 years
+newer than this pinned tree and fails on it (`Could not find module appdirs!`, c2json test
+failures). Environmental, not a code problem; Unit Tests and Lint Format still run and pass.
+Re-enable both after the upstream sync: `gh workflow enable "CLI CI"` / `gh workflow enable
+"Regenerate Files"` (needs the peteanning gh account active: `gh auth switch -u peteanning`).
+
 1. `git fetch upstream && git merge upstream/master`
 2. `make git-submodule` (submodules move with breaking changes)
 3. `qmk compile -kb keebio/iris_ce/rev1 -km peteanning` and fix deprecations
