@@ -7,12 +7,10 @@ revisit the upstream sync when there is dedicated time.
 
 - [x] Rescue the uncommitted keymap change in the OLD clone — DONE 2026-08-25 (commit `6530c55bb1`,
       pushed to fork): iris_ce keymap RGB underglow controls now in git, matching flashed firmware.
-- [ ] Back up the known-good firmware binaries somewhere safe (they only exist in the old clone):
-      - `/Users/peter/projects/qmk_firmware/keebio_iris_ce_rev1_peteanning.uf2` (2024-07-07, matches flashed firmware incl. RGB tweaks)
-      - `/Users/peter/projects/qmk_firmware/keebio_iris_rev2_peteanning.hex` (2021-06-29)
-      - plus `default`/`via` builds for both boards in the same directory
-- [ ] Decide fate of the old clone at `/Users/peter/projects/qmk_firmware` — once the keymap
-      diff and binaries are rescued, it is redundant with this repo (`~/qmk_firmware`).
+- [x] Back up the known-good firmware binaries — DONE 2026-08-25: committed to `firmware_backups/`
+      (force-added past .gitignore) and pushed to the fork. See `firmware_backups/README.md`.
+- [x] Old clone at `/Users/peter/projects/qmk_firmware` — DELETED 2026-08-25 after verifying
+      (checksummed binary copies; stashes inspected and superseded; no unpushed commits).
 
 ## The upstream sync (when there is time)
 
