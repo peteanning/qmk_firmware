@@ -5,10 +5,8 @@ revisit the upstream sync when there is dedicated time.
 
 ## Do soon (protects existing work)
 
-- [ ] Rescue the uncommitted keymap change in the OLD clone
-      (`/Users/peter/projects/qmk_firmware`): `keyboards/keebio/iris_ce/keymaps/peteanning/keymap.c`
-      has RGB underglow controls (RGB_TOG/RGB_MOD/HUI/SAI/VAI/HUD/SAD/VAD) added to a layer.
-      This is what is flashed to the Iris CE but is NOT in git. Copy into this repo, commit, push to fork.
+- [x] Rescue the uncommitted keymap change in the OLD clone — DONE 2026-08-25 (commit `6530c55bb1`,
+      pushed to fork): iris_ce keymap RGB underglow controls now in git, matching flashed firmware.
 - [ ] Back up the known-good firmware binaries somewhere safe (they only exist in the old clone):
       - `/Users/peter/projects/qmk_firmware/keebio_iris_ce_rev1_peteanning.uf2` (2024-07-07, matches flashed firmware incl. RGB tweaks)
       - `/Users/peter/projects/qmk_firmware/keebio_iris_rev2_peteanning.hex` (2021-06-29)
