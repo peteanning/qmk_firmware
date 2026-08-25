@@ -18,6 +18,16 @@ Fork is upstream QMK as of Jul 2024; upstream has had ~8 quarterly breaking-chan
 Custom changes are additive (keymap files only) so git conflicts ~zero; the work is fixing
 compile breaks (e.g. RGB_* underglow keycodes were renamed upstream).
 
+Both keymaps verified compiling on the pinned tree (2026-08-25); rev2 needed its config.h
+modernized (`a5df1446be`).
+
+**Flash headroom warning (iris rev2):** the rev2's ATmega32u4 build is already at 91% flash
+(26212/28672 bytes, 2460 free). QMK tends to grow between releases, so after the upstream merge
+the rev2 may not fit. If it overflows: disable unused features in the keymap's rules.mk
+(e.g. `CONSOLE_ENABLE = no`, `MOUSEKEY_ENABLE = no`, trim rgblight animations in config.h) or
+add `LTO_ENABLE = yes`, which typically saves a few KB. The RP2040-based Iris CE has no such
+constraint.
+
 1. `git fetch upstream && git merge upstream/master`
 2. `make git-submodule` (submodules move with breaking changes)
 3. `qmk compile -kb keebio/iris_ce/rev1 -km peteanning` and fix deprecations
